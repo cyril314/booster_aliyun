@@ -1,7 +1,8 @@
 #!/bin/bash
 LOCAL_IMAGE=$1
-USER_NAME=$2
-USER_PWD=$3
+PUSH_IMAGE=$2
+USER_NAME=$3
+USER_PWD=$4
 
 echo "$USER_NAME"
 
@@ -11,8 +12,8 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-ALIYUN_REGISTRY="registry.cn-hongkong.aliyuncs.com/booster"
-ALIYUN_IMAGE="$ALIYUN_REGISTRY/$LOCAL_IMAGE"
+ALIYUN_REGISTRY="registry.cn-hongkong.aliyuncs.com/booster/sync"
+ALIYUN_IMAGE="$ALIYUN_REGISTRY:$PUSH_IMAGE"
 docker pull $LOCAL_IMAGE
 # 检查镜像是否存在
 if docker image inspect $LOCAL_IMAGE > /dev/null 2>&1; then
