@@ -3,8 +3,9 @@ LOCAL_IMAGE=$1
 USER_NAME=$2
 USER_PWD=$3
 
-docker login --username=$USER_NAME --password=$PWD registry.cn-hongkong.aliyuncs.com
+echo "$USER_NAME"
 
+echo "$PWD" | docker login --username=$USER_NAME registry.cn-hongkong.aliyuncs.com
 if [ $? -ne 0 ]; then
   echo "登录失败，请检查用户名或密码。"
   exit 1
