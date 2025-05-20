@@ -12,7 +12,7 @@ if [ $? -ne 0 ]; then
 fi
 
 ALIYUN_REGISTRY="registry.cn-hongkong.aliyuncs.com/booster"
-
+ALIYUN_IMAGE="$ALIYUN_REGISTRY/$LOCAL_IMAGE"
 docker pull $LOCAL_IMAGE
 # 检查镜像是否存在
 if docker image inspect $LOCAL_IMAGE > /dev/null 2>&1; then
