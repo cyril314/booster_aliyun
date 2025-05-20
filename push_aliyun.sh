@@ -5,7 +5,7 @@ USER_PWD=$3
 
 echo "$USER_NAME"
 
-echo "$PWD" | docker login --username=$USER_NAME registry.cn-hongkong.aliyuncs.com --password-stdin
+echo $PWD | docker login --username=$USER_NAME --password-stdin registry.cn-hongkong.aliyuncs.com
 if [ $? -ne 0 ]; then
   echo "登录失败，请检查用户名或密码。"
   exit 1
